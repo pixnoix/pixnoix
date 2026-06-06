@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCERTPadhlo – Free NCERT Solutions Class 6 to 12 | CBSE 2026-27</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="NCERTPadhlo – Free NCERT Solutions for Class 6, 7, 8, 9, 10, 11, 12. Chapter-wise PDF, exercise solutions for Maths, Science, Social Science, English, Hindi. Updated for CBSE session 2026-27.">
+<meta name="keywords" content="NCERT Solutions, CBSE Solutions, Class 10 Maths NCERT Solutions, Class 9 Science NCERT, Free NCERT PDF, NCERT Solutions Class 6, NCERT Solutions Class 7, NCERT Solutions Class 8, NCERT Solutions Class 9, NCERT Solutions Class 10, NCERT Solutions Class 11, NCERT Solutions Class 12, NCERT Solutions Hindi Medium, NCERT Solutions English Medium, CBSE 2026-27 Solutions, Board Exam Solutions, Chapter wise NCERT, Exercise Solutions NCERT, Free Study Material CBSE">
+<meta name="author" content="NCERTPadhlo">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="NCERTPadhlo – Free NCERT Solutions Class 6 to 12">
+<meta property="og:description" content="Chapter-wise free NCERT Solutions for all classes. Updated for CBSE 2026-27 session.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0673F6">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --bg:#f5f4f0;--bg2:#fff;--bg3:#faf9ff;
+    --border:#e2e0da;--border-h:#b8b0e8;
+    --text:#1a1a1a;--muted:#888;--dim:#bbb;
+    --accent:#0673F6;--teal:#1d7a54;--accent-light:#eef4ff;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;padding-bottom:3rem;overflow-x:hidden}
+
+  /* ── NAV ── */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.5rem;border-bottom:.5px solid var(--border);background:var(--bg2);position:sticky;top:0;z-index:100}
+  .logo{display:flex;align-items:center;gap:9px;font-family:'Fuzzy Bubbles',cursive;font-weight:700;font-size:16px;color:#1a1a1a;text-decoration:none}
+  .nav-tag{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase}
+  .nav-links{display:flex;gap:1.5rem;align-items:center}
+  .nav-links a{font-size:12px;color:var(--muted);text-decoration:none;font-family:'Syne',sans-serif;font-weight:600;transition:color .15s}
+  .nav-links a:hover{color:var(--accent)}
+
+  /* ── HERO ── */
+  .hero{padding:3.5rem 1.5rem 3rem;background:var(--bg2);border-bottom:.5px solid var(--border);position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(6,115,246,.07) 0%,transparent 70%);pointer-events:none}
+  .hero-inner{max-width:720px}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;background:var(--accent-light);border:.5px solid #c4d9fd;border-radius:20px;padding:4px 12px;margin-bottom:1.1rem}
+  .hero-badge span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+  .hero h1{font-size:clamp(28px,6vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:.6rem;font-family:'Poppins',sans-serif}
+  .hero h1 .accent{color:var(--accent)}
+  .hero-sub{font-size:13.5px;color:var(--muted);margin-bottom:1.6rem;line-height:1.7;max-width:540px}
+  .hero-cta{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+  .btn-primary{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;padding:.65rem 1.3rem;border-radius:8px;text-decoration:none;transition:opacity .15s;border:none;cursor:pointer}
+  .btn-primary:hover{opacity:.88}
+  .btn-ghost{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--text);font-family:'Syne',sans-serif;font-weight:600;font-size:13px;padding:.65rem 1.1rem;border-radius:8px;border:.5px solid var(--border);text-decoration:none;transition:border-color .15s}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ── STATS STRIP ── */
+  .stats-strip{display:flex;gap:0;border-bottom:.5px solid var(--border);background:var(--bg2);overflow-x:auto}
+  .stat-item{flex:1;min-width:110px;padding:1rem 1.25rem;border-right:.5px solid var(--border);text-align:center}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-family:'Space Mono',monospace;font-size:18px;font-weight:700;color:var(--accent);display:block;letter-spacing:-.02em}
+  .stat-label{font-size:11px;color:var(--dim);margin-top:2px;font-family:'Syne',sans-serif}
+
+  /* ── SECTION HEADER ── */
+  .sec-hd{padding:1.5rem 1.5rem .9rem;display:flex;align-items:center;justify-content:space-between;background:var(--bg)}
+  .sec-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.12em;text-transform:uppercase}
+  .sec-subtitle{font-size:11px;color:var(--muted);font-family:'Syne',sans-serif}
+
+  /* ── CLASS GRID ── */
+  .class-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:8px;padding:0 1.5rem 1.5rem;background:var(--bg)}
+
+  .class-card{background:var(--bg2);border:.5px solid var(--border);border-radius:12px;padding:1.2rem 1.1rem;text-decoration:none;color:var(--text);transition:border-color .18s,background .18s,transform .18s;display:flex;flex-direction:column;gap:.5rem;cursor:pointer;position:relative;overflow:hidden}
+  .class-card::after{content:'';position:absolute;inset:0;background:var(--accent);opacity:0;transition:opacity .18s;border-radius:inherit}
+  .class-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .class-card:hover .class-name,.class-card:hover .class-num,.class-card:hover .class-subjects{color:inherit}
+
+  .class-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase}
+  .class-name{font-size:20px;font-weight:800;color:var(--text);font-family:'Poppins',sans-serif;line-height:1}
+  .class-subjects{display:flex;gap:5px;flex-wrap:wrap;margin-top:.2rem}
+  .subj-tag{font-family:'Space Mono',monospace;font-size:9px;padding:2px 7px;border-radius:3px;font-weight:700}
+  .tag-maths{background:#e8f5ee;color:#1d7a54}
+  .tag-sci{background:#fff3e0;color:#e65100}
+  .tag-soc{background:#fce4ec;color:#c62828}
+  .tag-eng{background:#e8eaf6;color:#3949ab}
+  .tag-more{background:var(--bg);color:var(--dim);border:.5px solid var(--border)}
+  .class-arrow{align-self:flex-end;color:var(--dim);margin-top:.3rem}
+
+  /* Board classes highlight */
+  .class-card.board{border-color:#e6d0ff;background:linear-gradient(135deg,#fdfcff 0%,#f7f0ff 100%)}
+  .class-card.board .class-name{color:#5a3fcf}
+  .class-card.board .class-num{color:#9b8ecf}
+  .board-badge{font-family:'Space Mono',monospace;font-size:8px;background:#ede8ff;color:#5a3fcf;padding:2px 7px;border-radius:3px;letter-spacing:.08em;font-weight:700;width:fit-content}
+
+  /* ── WHY US SECTION ── */
+  .why-section{padding:2rem 1.5rem;background:var(--bg2);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);margin:1.5rem 0 0}
+  .why-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(18px,4vw,26px);margin-bottom:.4rem;letter-spacing:-.02em}
+  .why-title span{color:var(--accent)}
+  .why-sub{font-size:13px;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:10px}
+  .why-card{background:var(--bg);border:.5px solid var(--border);border-radius:10px;padding:1rem 1.1rem}
+  .why-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem;font-size:16px}
+  .why-card h3{font-size:13px;font-weight:700;margin-bottom:.3rem}
+  .why-card p{font-size:12px;color:var(--muted);line-height:1.6}
+
+  /* ── POPULAR SOLUTIONS ── */
+  .popular-section{padding:0 1.5rem 1.5rem;background:var(--bg)}
+  .pop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:7px}
+  .pop-card{background:var(--bg2);border:.5px solid var(--border);border-radius:9px;padding:.85rem 1rem;display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--text);transition:border-color .15s}
+  .pop-card:hover{border-color:var(--accent)}
+  .pop-info{}
+  .pop-name{font-size:13px;font-weight:700}
+  .pop-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);margin-top:2px}
+  .pop-arrow{color:var(--dim)}
+
+  /* ── SEO TEXT SECTION ── */
+  .seo-section{padding:2rem 1.5rem;background:var(--bg2);border-top:.5px solid var(--border);margin-top:1.5rem}
+  .seo-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(16px,3.5vw,22px);margin-bottom:1rem;letter-spacing:-.02em}
+  .seo-title span{color:var(--accent)}
+  .seo-body{font-size:13px;color:var(--muted);line-height:1.85;max-width:760px}
+  .seo-body p{margin-bottom:.8rem}
+  .seo-body strong{color:var(--text)}
+  .seo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:8px;margin-top:1.2rem}
+  .seo-topic{background:var(--bg);border:.5px solid var(--border);border-radius:8px;padding:.7rem .9rem}
+  .seo-topic-title{font-size:12px;font-weight:700;margin-bottom:.3rem}
+  .seo-topic-list{font-size:11px;color:var(--muted);line-height:1.8;font-family:'Syne',sans-serif}
+
+  /* ── KEYWORD CLOUD ── */
+  .keyword-section{padding:1.5rem 1.5rem 2rem;background:var(--bg);border-top:.5px solid var(--border)}
+  .kw-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.9rem}
+  .kw-cloud{display:flex;flex-wrap:wrap;gap:6px}
+  .kw-tag{font-family:'Space Mono',monospace;font-size:10px;padding:4px 10px;border-radius:4px;background:var(--bg2);border:.5px solid var(--border);color:var(--muted);transition:border-color .15s,color .15s;cursor:default}
+  .kw-tag:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ── FOOTER ── */
+  .footer{padding:1.5rem 1.5rem 1rem;border-top:.5px solid var(--border);background:var(--bg2)}
+  .footer-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.2rem}
+  .footer-brand{font-family:'Fuzzy Bubbles',cursive;font-weight:700;font-size:15px;color:#1a1a1a;margin-bottom:.4rem}
+  .footer-desc{font-size:11px;color:var(--dim);line-height:1.6;max-width:220px;font-family:'Syne',sans-serif}
+  .footer-links-col h4{font-family:'Space Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
+  .footer-links-col a{display:block;font-size:11px;color:var(--muted);text-decoration:none;margin-bottom:.3rem;font-family:'Syne',sans-serif;transition:color .15s}
+  .footer-links-col a:hover{color:var(--accent)}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;padding-top:1rem;border-top:.5px solid var(--border)}
+  .footer-copy{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim)}
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .class-card{animation:fadeUp .4s ease both}
+  .class-card:nth-child(1){animation-delay:.05s}
+  .class-card:nth-child(2){animation-delay:.1s}
+  .class-card:nth-child(3){animation-delay:.15s}
+  .class-card:nth-child(4){animation-delay:.2s}
+  .class-card:nth-child(5){animation-delay:.25s}
+  .class-card:nth-child(6){animation-delay:.3s}
+  .class-card:nth-child(7){animation-delay:.35s}
+
+  /* ── MOBILE ── */
+  @media(max-width:600px){
+    .hero{padding:2.5rem 1rem 2.2rem}
+    .class-grid,.popular-section,.sec-hd,.why-section,.seo-section,.keyword-section,.footer{padding-left:1rem;padding-right:1rem}
+    .stats-strip{overflow-x:auto}
+    .nav-links{display:none}
+    .footer-top{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a class="logo" href="index.html">
+    <img src="logo.jpg" style="height:30px;width:auto;border-radius:4px;" alt="NCERTPadhlo Logo">
+    NCERT Padhlo
+  </a>
+  <div class="nav-links">
+    <a href="#">Solutions</a>
+    <a href="#">Sample Papers</a>
+    <a href="#">NCERT Books</a>
+    <a href="#">About</a>
+  </div>
+  <div class="nav-tag">CBSE 2026–27</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span></span>
+      Updated for Session 2026–27
+    </div>
+    <h1>Free <span class="accent">NCERT Solutions</span><br>Class 6 to 12</h1>
+    <p class="hero-sub">
+      Chapter-wise NCERT Solutions for all subjects — Maths, Science, Social Science, English, Hindi & more. Step-by-step answers, PDF downloads, Hindi & English medium. Bilkul free, koi login nahi.
+    </p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#classes">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Apni Class Chuno
+      </a>
+      <a class="btn-ghost" href="#">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Free PDF Download
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-num">7</span>
+    <div class="stat-label">Classes (6–12)</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">40+</span>
+    <div class="stat-label">Subjects</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">500+</span>
+    <div class="stat-label">Chapters</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">3000+</span>
+    <div class="stat-label">Exercises</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">Free</span>
+    <div class="stat-label">Always & Forever</div>
+  </div>
+</div>
+
+<!-- CLASS SELECT -->
+<div id="classes">
+  <div class="sec-hd">
+    <div>
+      <div class="sec-label">Select Your Class ✦</div>
+      <div class="sec-subtitle" style="margin-top:3px">Class 6 se 12 tak — apna class choose karo</div>
+    </div>
+  </div>
+
+  <div class="class-grid">
+
+    <!-- Class 6 -->
+    <a class="class-card" href="class6.html">
+      <div class="class-num">Class</div>
+      <div class="class-name">6th</div>
+      <div class="class-subjects">
+        <span class="subj-tag tag-maths">Maths</span>
+        <span class="subj-tag tag-sci">Science</span>
+        <span class="subj-tag tag-soc">SST</span>
+        <span class="subj-tag tag-more">+3</span>
+      </div>
+      <svg class="class-arrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Class 7 -->
+    <a class="class-card" href="class7.html">
+      <div class="class-num">Class</div>
+      <div class="class-name">7th</div>
+      <div class="class-subjects">
+        <span class="subj-tag tag-maths">Maths</span>
+        <span class="subj-tag tag-sci">Science</span>
+        <span class="subj-tag tag-soc">SST</span>
+        <span class="subj-tag tag-more">+3</span>
+      </div>
+      <svg class="class-arrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Class 8 -->
+    <a class="class-card" href="class8.html">
+      <div class="class-num">Class</div>
+      <div class="class-name">8th</div>
+      <div class="class-subjects">
+        <span class="subj-tag tag-maths">Maths</span>
+        <span class="subj-tag tag-sci">Science</span>
+        <span class="subj-tag tag-soc">SST</span>
+        <span class="subj-tag tag-more">+4</span>
+      </div>
+      <svg class="class-arrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Class 9 -->
+    <a class="class-card" href="class_9th_page.html">
+      <div class="class-num">Class</div>
+      <div class="class-name">9th</div>
+      <div class="class-subjects">
+        <span class="subj-tag tag-maths">Maths</span>
+        <span class="subj-tag tag-sci">Science</span>
+        <span class="subj-tag tag-soc">SST</span>
+        <span class="subj-tag tag-more">+3</span>
+      </div>
+      <svg class="class-arrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Class 10 – Board -->
+    <a class="class-card board" href="class_10th_page.html">
+      <div class="board-badge">BOARD EXAM</div>
+      <div class="class-num">Class</div>
+      <div class="class-name">10th</div>
+      <div class="class-subjects">
+        <span class="subj-tag tag-maths">Maths</span>
+        <span class="subj-tag tag-sci">Science</span>
+        <span class="subj-tag tag-soc">SST</span>
+        <span class="subj-tag tag-more">+3</span>
+      </div>
+      <svg class="class-arrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Class 11 – Board -->
+    <a class="class-card board" href="class11.html">
+      <div class="board-badge">BOARD EXAM</div>
+      <div class="class-num">Class</div>
+      <div class="class-name">11th</div>
+      <div class="class-subjects">
+        <span class="subj-tag tag-maths">Maths</span>
+        <span class="subj-tag tag-sci">Physics</span>
+        <span class="subj-tag tag-soc">Chem</span>
+        <span class="subj-tag tag-more">+5</span>
+      </div>
+      <svg class="class-arrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Class 12 – Board -->
+    <a class="class-card board" href="class12.html">
+      <div class="board-badge">BOARD EXAM</div>
+      <div class="class-num">Class</div>
+      <div class="class-name">12th</div>
+      <div class="class-subjects">
+        <span class="subj-tag tag-maths">Maths</span>
+        <span class="subj-tag tag-sci">Physics</span>
+        <span class="subj-tag tag-soc">Chem</span>
+        <span class="subj-tag tag-more">+6</span>
+      </div>
+      <svg class="class-arrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+  </div>
+</div>
+
+<!-- WHY US -->
+<div class="why-section">
+  <h2 class="why-title">NCERTPadhlo <span>kyun choose karein?</span></h2>
+  <p class="why-sub">Lakhon students ka bharosa — yahan milta hai sab kuch, ek hi jagah, bilkul free.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon" style="background:#e8f5ee">📚</div>
+      <h3>Expert-Verified Solutions</h3>
+      <p>Har solution CBSE expert teachers ne step-by-step taiyaar kiya hai. Board exam ke liye perfect.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon" style="background:#eef4ff">📥</div>
+      <h3>Free PDF Download</h3>
+      <p>Sare chapters ke PDF free mein download karo. Offline bhi padho, koi charge nahi.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon" style="background:#fff3e0">🔄</div>
+      <h3>2026-27 Updated</h3>
+      <p>Latest CBSE syllabus ke hisaab se updated. Purana content nahi milega yahan.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon" style="background:#fce4ec">🌐</div>
+      <h3>Hindi & English Medium</h3>
+      <p>Dono medium mein solutions available hain. Aapki bhasha mein samjho.</p>
+    </div>
+  </div>
+</div>
+
+<!-- POPULAR SOLUTIONS -->
+<div class="sec-hd" style="margin-top:0">
+  <div>
+    <div class="sec-label">Popular Solutions ✦</div>
+    <div class="sec-subtitle" style="margin-top:3px">Sabse zyada search ki gayi solutions</div>
+  </div>
+</div>
+
+<div class="popular-section">
+  <div class="pop-grid">
+    <a class="pop-card" href="class10-maths-light.html">
+      <div class="pop-info">
+        <div class="pop-name">Class 10 Maths</div>
+        <div class="pop-meta">15 chapters · 600+ questions</div>
+      </div>
+      <svg class="pop-arrow" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a class="pop-card" href="class_9th_page.html">
+      <div class="pop-info">
+        <div class="pop-name">Class 10 Science</div>
+        <div class="pop-meta">16 chapters · 700+ questions</div>
+      </div>
+      <svg class="pop-arrow" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a class="pop-card" href="class_9th_page.html">
+      <div class="pop-info">
+        <div class="pop-name">Class 9 Maths</div>
+        <div class="pop-meta">15 chapters · 500+ questions</div>
+      </div>
+      <svg class="pop-arrow" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a class="pop-card" href="class_12th_page.html">
+      <div class="pop-info">
+        <div class="pop-name">Class 12 Maths</div>
+        <div class="pop-meta">13 chapters · 800+ questions</div>
+      </div>
+      <svg class="pop-arrow" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a class="pop-card" href="#">
+      <div class="pop-info">
+        <div class="pop-name">Class 12 Physics</div>
+        <div class="pop-meta">15 chapters · 600+ questions</div>
+      </div>
+      <svg class="pop-arrow" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a class="pop-card" href="#">
+      <div class="pop-info">
+        <div class="pop-name">Class 11 Chemistry</div>
+        <div class="pop-meta">14 chapters · 550+ questions</div>
+      </div>
+      <svg class="pop-arrow" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- SEO TEXT SECTION -->
+<div class="seo-section">
+  <h2 class="seo-title">NCERTPadhlo mein <span>Aapka Swagat Hai</span></h2>
+  <div class="seo-body">
+    <p><strong>NCERTPadhlo</strong> ek free online education platform hai jo Class 6 se lekar Class 12 tak ke sabhi CBSE students ke liye NCERT Solutions provide karta hai. Hamare platform pe aapko milenge step-by-step solutions, chapter-wise exercise answers, aur free PDF downloads — sab kuch bilkul free mein.</p>
+    <p>Hamare solutions CBSE-experienced teachers dwara prepare kiye gaye hain aur <strong>session 2026-27</strong> ke latest syllabus ke according updated hain. Chahe aap board exam ki taiyaari kar rahe hon ya regular studies ke liye help chahiye ho — NCERTPadhlo aapke liye best resource hai.</p>
+    <p>Hum <strong>Hindi Medium aur English Medium</strong> dono ke liye solutions provide karte hain. Maths, Science, Social Science, English, Hindi, Sanskrit — har subject ke detailed answers yahan available hain.</p>
+  </div>
+
+  <div class="seo-grid">
+    <div class="seo-topic">
+      <div class="seo-topic-title">📐 Class 10 Maths Solutions</div>
+      <div class="seo-topic-list">Real Numbers · Polynomials · Linear Equations · Quadratic Equations · Arithmetic Progressions · Triangles · Trigonometry · Circles · Statistics · Probability</div>
+    </div>
+    <div class="seo-topic">
+      <div class="seo-topic-title">🔬 Class 10 Science Solutions</div>
+      <div class="seo-topic-list">Chemical Reactions · Acids Bases Salts · Metals & Non-metals · Carbon Compounds · Life Processes · Control & Coordination · Heredity · Light · Electricity · Magnetic Effects</div>
+    </div>
+    <div class="seo-topic">
+      <div class="seo-topic-title">📊 Class 12 Maths Solutions</div>
+      <div class="seo-topic-list">Relations & Functions · Inverse Trigonometry · Matrices · Determinants · Continuity · Integrals · Differential Equations · Vectors · 3D Geometry · Linear Programming · Probability</div>
+    </div>
+    <div class="seo-topic">
+      <div class="seo-topic-title">⚗️ Class 12 Chemistry Solutions</div>
+      <div class="seo-topic-list">Solid State · Solutions · Electrochemistry · Chemical Kinetics · Surface Chemistry · p-Block Elements · Coordination Compounds · Polymers · Biomolecules</div>
+    </div>
+  </div>
+</div>
+
+<!-- KEYWORD CLOUD (SEO) -->
+<div class="keyword-section">
+  <div class="kw-label">Related Topics ✦</div>
+  <div class="kw-cloud">
+    <span class="kw-tag">NCERT Solutions Class 6</span>
+    <span class="kw-tag">NCERT Solutions Class 7</span>
+    <span class="kw-tag">NCERT Solutions Class 8</span>
+    <span class="kw-tag">NCERT Solutions Class 9</span>
+    <span class="kw-tag">NCERT Solutions Class 10</span>
+    <span class="kw-tag">NCERT Solutions Class 11</span>
+    <span class="kw-tag">NCERT Solutions Class 12</span>
+    <span class="kw-tag">Class 10 Maths Solutions</span>
+    <span class="kw-tag">Class 10 Science Solutions</span>
+    <span class="kw-tag">Class 12 Physics Solutions</span>
+    <span class="kw-tag">Class 12 Chemistry Solutions</span>
+    <span class="kw-tag">Class 12 Maths Solutions</span>
+    <span class="kw-tag">CBSE Solutions 2026-27</span>
+    <span class="kw-tag">Free NCERT PDF Download</span>
+    <span class="kw-tag">NCERT Solutions Hindi Medium</span>
+    <span class="kw-tag">Board Exam Solutions</span>
+    <span class="kw-tag">Chapter Wise NCERT</span>
+    <span class="kw-tag">Exercise Solutions CBSE</span>
+    <span class="kw-tag">Class 9 Maths Solutions</span>
+    <span class="kw-tag">Class 9 Science Solutions</span>
+    <span class="kw-tag">Class 11 Maths Solutions</span>
+    <span class="kw-tag">Class 11 Physics Solutions</span>
+    <span class="kw-tag">NCERT Exemplar Solutions</span>
+    <span class="kw-tag">CBSE Sample Papers</span>
+    <span class="kw-tag">NCERT Books PDF</span>
+    <span class="kw-tag">Class 8 Maths Solutions</span>
+    <span class="kw-tag">Class 8 Science Solutions</span>
+    <span class="kw-tag">Social Science NCERT Solutions</span>
+    <span class="kw-tag">English NCERT Solutions</span>
+    <span class="kw-tag">Hindi NCERT Solutions</span>
+    <span class="kw-tag">Sanskrit NCERT Solutions</span>
+    <span class="kw-tag">Ganita Prakash Solutions</span>
+    <span class="kw-tag">Ganita Manjari Solutions</span>
+    <span class="kw-tag">Class 6 Maths Ganita Prakash</span>
+    <span class="kw-tag">Free Study Material NCERT</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">NCERT Padhlo</div>
+      <div class="footer-desc">Free NCERT Solutions for Class 6 to 12. Updated for CBSE session 2026-27. Koi login nahi, koi paisa nahi.</div>
+    </div>
+    <div class="footer-links-col">
+      <h4>Classes</h4>
+      <a href="#">Class 6</a>
+      <a href="#">Class 7</a>
+      <a href="#">Class 8</a>
+      <a href="class_9th_page.html">Class 9</a>
+      <a href="class_10th_page.html">Class 10</a>
+      <a href="#">Class 11</a>
+      <a href="#">Class 12</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Popular</h4>
+      <a href="class_10th_page.html">Class 10 Maths</a>
+      <a href="#">Class 10 Science</a>
+      <a href="class_12th_page.html">Class 12 Maths</a>
+      <a href="class_12th_page.html">Class 12 Physics</a>
+      <a href="class_9th_page.html">Class 9 Maths</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Info</h4>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">✦ NCERTPadhlo · Free NCERT Solutions</div>
+    <div class="footer-copy">Free · No Ads · No Login</div>
+  </div>
+</div>
+
+</body>
+</html>
