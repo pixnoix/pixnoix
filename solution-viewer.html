@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solution Viewer – NCERT Padhlo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Poppins:wght@400;500;600;800&family=Fuzzy+Bubbles:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --bg:#f5f4f0;--bg2:#fff;--bg3:#faf9ff;
+    --border:#e2e0da;--border-h:#b8b0e8;
+    --text:#3f3e3e;--muted:#4d4d4d;--dim:#4b4b4b;
+    --accent:#0673F6;--accent-light:#eeedfe;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;padding-bottom:3rem}
+
+  /* NAV */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem;border-bottom:.5px solid var(--border);background:var(--bg2);position:sticky;top:0;z-index:100}
+  .logo{display:flex;align-items:center;gap:9px;font-family:'Fuzzy Bubbles',cursive;font-weight:700;font-size:15px;color:#1a1a1a;text-decoration:none}
+  .back-btn{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);text-decoration:none;padding:5px 10px;border:.5px solid var(--border);border-radius:6px;background:var(--bg);transition:border-color .15s,background .15s}
+  .back-btn:hover{border-color:var(--border-h);background:var(--bg3)}
+
+  /* HEADER */
+  .viewer-header{padding:1.8rem 1.25rem 1.4rem;border-bottom:.5px solid var(--border);background:var(--bg2)}
+  .breadcrumb{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem}
+  .breadcrumb span{color:var(--accent)}
+  .viewer-title{font-size:clamp(20px,5vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.2;font-family:'Poppins',sans-serif}
+  .viewer-title span{color:var(--accent)}
+  .viewer-meta{display:flex;gap:1rem;margin-top:.7rem;flex-wrap:wrap}
+  .meta-pill{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);background:var(--bg);border:.5px solid var(--border);padding:3px 9px;border-radius:4px}
+
+  /* QUESTION TABS */
+  .q-nav{padding:.9rem 1.25rem;background:var(--bg2);border-bottom:.5px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .q-tabs{display:flex;gap:7px;min-width:max-content}
+  .q-tab{font-family:'Space Mono',monospace;font-size:11px;padding:5px 13px;border:.5px solid var(--border);border-radius:20px;cursor:pointer;background:var(--bg);color:var(--dim);transition:all .15s;white-space:nowrap;user-select:none}
+  .q-tab:hover{border-color:var(--border-h);background:var(--bg3)}
+  .q-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  /* IMAGE AREA */
+  .img-area{padding:1.5rem 1.25rem;background:var(--bg)}
+  .img-card{background:var(--bg2);border:.5px solid var(--border);border-radius:12px;overflow:hidden;max-width:800px;margin:0 auto}
+  .img-card-top{padding:.9rem 1.1rem;border-bottom:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+  .img-card-label{font-family:'Space Mono',monospace;font-size:11px;color:var(--dim)}
+  .zoom-btn{display:flex;align-items:center;gap:5px;background:var(--accent-light);border:.5px solid #c4bff5;border-radius:5px;padding:4px 10px;font-size:11px;font-weight:700;color:var(--accent);font-family:'Syne',sans-serif;cursor:pointer;text-decoration:none;transition:background .15s}
+  .zoom-btn:hover{background:#dddafc}
+
+  .img-wrapper{position:relative;background:#f0eff0;min-height:300px;display:flex;align-items:center;justify-content:center}
+  .sol-img{width:100%;height:auto;display:block;cursor:zoom-in}
+  .sol-img.loading{opacity:0;transition:opacity .3s}
+  .sol-img.loaded{opacity:1}
+
+  /* loading skeleton */
+  .img-skeleton{position:absolute;inset:0;background:linear-gradient(90deg,#eee 25%,#f5f5f5 50%,#eee 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+  /* error state */
+  .img-error{display:none;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:3rem;text-align:center}
+  .img-error.show{display:flex}
+  .img-error-icon{font-size:2rem}
+  .img-error-title{font-size:14px;font-weight:700;color:var(--text)}
+  .img-error-sub{font-size:12px;color:var(--dim);line-height:1.6;max-width:280px}
+  .img-error-path{font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);background:var(--accent-light);padding:4px 10px;border-radius:4px;margin-top:.3rem;word-break:break-all}
+
+  /* nav arrows */
+  .img-nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;border-top:.5px solid var(--border)}
+  .nav-arrow{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);cursor:pointer;padding:5px 10px;border:.5px solid var(--border);border-radius:6px;background:var(--bg);transition:all .15s;user-select:none}
+  .nav-arrow:hover:not(.disabled){border-color:var(--border-h);background:var(--bg3);color:var(--text)}
+  .nav-arrow.disabled{opacity:.35;cursor:not-allowed}
+  .q-counter{font-family:'Space Mono',monospace;font-size:11px;color:var(--dim)}
+
+  /* LIGHTBOX */
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;align-items:center;justify-content:center;padding:1rem}
+  .lightbox.show{display:flex}
+  .lightbox img{max-width:100%;max-height:90vh;border-radius:8px;object-fit:contain}
+  .lb-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;background:rgba(255,255,255,.15);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;transition:background .15s}
+  .lb-close:hover{background:rgba(255,255,255,.25)}
+
+  /* INFO BOX */
+  .info-box{max-width:800px;margin:0 auto 1rem;background:var(--bg2);border:.5px solid var(--border);border-radius:10px;padding:1rem 1.1rem;display:flex;gap:.8rem;align-items:flex-start}
+  .info-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+  .info-text{font-size:12px;color:var(--dim);line-height:1.6}
+  .info-text b{color:var(--text)}
+
+  .footer{margin-top:2rem;padding:1.5rem 1.25rem 0;border-top:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;background:var(--bg2)}
+  .footer-txt{font-family:'Space Mono',monospace;font-size:11px;color:var(--dim)}
+
+  @media(max-width:480px){
+    .viewer-header,.img-area,.q-nav,.footer{padding-left:1rem;padding-right:1rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="class_9th_page.html">
+    <img src="logo.jpg" style="height:32px;width:auto;border-radius:4px;" alt="NCERTPadhlo">
+    NCERT Padhlo
+  </a>
+  <a class="back-btn" href="class_9th_page.html">
+    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</nav>
+
+<div class="viewer-header">
+  <div class="breadcrumb" id="breadcrumb">Class 9 · Maths · <span id="breadExName">—</span></div>
+  <div class="viewer-title" id="viewerTitle">Loading...</div>
+  <div class="viewer-meta">
+    <div class="meta-pill" id="metaChapter">—</div>
+    <div class="meta-pill" id="metaQCount">— questions</div>
+  </div>
+</div>
+
+<div class="q-nav">
+  <div class="q-tabs" id="qTabs"></div>
+</div>
+
+<div class="img-area">
+  <div class="info-box">
+    <div class="info-icon">📁</div>
+    <div class="info-text">
+      Images is folder mein rakhni hain: <b>solutions/class9/maths/</b><br>
+      File naming pattern: <b id="filePattern">ch01-fig1-1-q1.jpg</b>
+    </div>
+  </div>
+
+  <div class="img-card">
+    <div class="img-card-top">
+      <div class="img-card-label" id="imgLabel">Question 1</div>
+      <a class="zoom-btn" onclick="openLightbox()">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        Zoom
+      </a>
+    </div>
+    <div class="img-wrapper">
+      <div class="img-skeleton" id="imgSkeleton"></div>
+      <img class="sol-img loading" id="solImg" src="" alt="Solution" onclick="openLightbox()">
+      <div class="img-error" id="imgError">
+        <div class="img-error-icon">🖼️</div>
+        <div class="img-error-title">Image abhi available nahi</div>
+        <div class="img-error-sub">Is path pe image upload karo:</div>
+        <div class="img-error-path" id="errorPath"></div>
+      </div>
+    </div>
+    <div class="img-nav">
+      <div class="nav-arrow disabled" id="prevBtn" onclick="changeQ(-1)">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Prev
+      </div>
+      <div class="q-counter" id="qCounter">Q 1 / 1</div>
+      <div class="nav-arrow" id="nextBtn" onclick="changeQ(1)">
+        Next
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lbImg" src="" alt="Solution zoomed">
+</div>
+
+<div class="footer">
+  <div class="footer-txt">✦ Class 9 NCERT Maths Solutions</div>
+  <div class="footer-txt">Free · No Ads</div>
+</div>
+
+<script>
+// ─── URL se params lo ───────────────────────────────────────────────
+const params = new URLSearchParams(window.location.search);
+const chNum  = params.get('ch')  || '01';   // e.g. "01"
+const exNum  = params.get('ex')  || '1';    // e.g. "1"  (fig it out number)
+const totalQ = parseInt(params.get('q')) || 4; // total questions
+const chName = params.get('name') || 'Chapter';
+const exName = `Fig it Out ${chNum.replace(/^0/,'')}.${exNum}`;
+
+// ─── Page info set karo ─────────────────────────────────────────────
+document.title = `${exName} Solutions – NCERT Padhlo`;
+document.getElementById('breadExName').textContent = exName;
+document.getElementById('viewerTitle').innerHTML =
+  `<span>${exName}</span> — Solutions`;
+document.getElementById('metaChapter').textContent = `Ch ${chNum} · ${decodeURIComponent(chName)}`;
+document.getElementById('metaQCount').textContent  = `${totalQ} question${totalQ!==1?'s':''}`;
+
+// File naming pattern info
+const patternEx = `ch${chNum}-fig${chNum.replace(/^0/,'')}-${exNum}-q1.jpg`;
+document.getElementById('filePattern').textContent = patternEx;
+
+// ─── Question tabs banao ────────────────────────────────────────────
+let currentQ = 1;
+const tabsEl = document.getElementById('qTabs');
+for(let i=1;i<=totalQ;i++){
+  const t = document.createElement('div');
+  t.className = 'q-tab' + (i===1?' active':'');
+  t.textContent = `Q ${i}`;
+  t.onclick = ()=>goToQ(i);
+  tabsEl.appendChild(t);
+}
+
+// ─── Image path builder ─────────────────────────────────────────────
+// Pattern: solutions/class9/maths/ch01-fig1-1-q1.jpg
+function imgPath(q){
+  return `solutions/class9/maths/ch${chNum}-fig${chNum.replace(/^0/,'')}-${exNum}-q${q}.jpg`;
+}
+
+// ─── Image load karo ────────────────────────────────────────────────
+function loadImage(q){
+  const img    = document.getElementById('solImg');
+  const skel   = document.getElementById('imgSkeleton');
+  const errDiv = document.getElementById('imgError');
+  const errPath= document.getElementById('errorPath');
+  const label  = document.getElementById('imgLabel');
+  const counter= document.getElementById('qCounter');
+
+  const path = imgPath(q);
+
+  // reset
+  img.className = 'sol-img loading';
+  skel.style.display = 'block';
+  errDiv.classList.remove('show');
+  label.textContent = `Question ${q}`;
+  counter.textContent = `Q ${q} / ${totalQ}`;
+  errPath.textContent = path;
+
+  // nav buttons
+  document.getElementById('prevBtn').className = 'nav-arrow' + (q<=1?' disabled':'');
+  document.getElementById('nextBtn').className = 'nav-arrow' + (q>=totalQ?' disabled':'');
+
+  // tabs highlight
+  document.querySelectorAll('.q-tab').forEach((t,i)=>{
+    t.classList.toggle('active', i+1===q);
+  });
+
+  // lightbox sync
+  document.getElementById('lbImg').src = path;
+
+  // load
+  const tmp = new Image();
+  tmp.onload = ()=>{
+    img.src = path;
+    img.classList.replace('loading','loaded');
+    skel.style.display = 'none';
+  };
+  tmp.onerror = ()=>{
+    skel.style.display = 'none';
+    img.style.display = 'none';
+    errDiv.classList.add('show');
+  };
+  tmp.src = path;
+}
+
+function goToQ(q){
+  if(q<1||q>totalQ) return;
+  currentQ = q;
+  document.getElementById('solImg').style.display = 'block';
+  loadImage(q);
+}
+
+function changeQ(dir){ goToQ(currentQ+dir); }
+
+// lightbox
+function openLightbox(){
+  const src = document.getElementById('solImg').src;
+  if(!src || document.getElementById('imgError').classList.contains('show')) return;
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('show'); }
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowRight') changeQ(1);
+  if(e.key==='ArrowLeft') changeQ(-1);
+});
+
+// ─── Init ────────────────────────────────────────────────────────────
+loadImage(1);
+</script>
+</body>
+</html>
